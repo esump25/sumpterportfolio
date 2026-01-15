@@ -1,50 +1,101 @@
-:root {
-    --primary-pink: #ff85a1;
-    --soft-pink: #fce4ec;
-    --dark-text: #4a4a4a;
-    --white: #ffffff;
-}
-
+/* 1. Universal Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    color: var(--dark-text);
-    background-color: #fff9fb;
+    padding: 0;
+    color: #444444;
+    background-color: #fff0f3; /* Very light pink background */
 }
 
-/* Navigation */
+/* 2. Navigation */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px 8%;
+    background-color: #ffffff;
+    border-bottom: 3px solid #ffccd5;
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-nav a { text-decoration: none; color: var(--dark-text); font-weight: bold; }
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #c9184a; /* Deep rose pink */
+}
 
-/* Hero Section */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ff4d6d; /* Bright pink */
+    font-weight: 600;
+}
+
+/* 3. Hero Header */
 header {
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(135deg, var(--soft-pink) 0%, #fff 100%);
+    background: linear-gradient(to bottom, #ffccd5, #fff0f3);
 }
 
-.highlight { color: var(--primary-pink); }
+header h1 {
+    font-size: 3rem;
+    color: #800f2f; /* Darkest pink for contrast */
+}
 
-/* Sections */
-section { padding: 60px 10%; }
+.highlight {
+    color: #ff4d6d;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
 
-.about-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-.profile-pic { border-radius: 50%; border: 5px solid var(--primary-pink); width: 150px; }
+/* 4. Sections & Containers */
+section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-/* Responsive Project Grid */
+h2 {
+    text-align: center;
+    color: #c9184a;
+    border-bottom: 2px solid #ffccd5;
+    display: inline-block;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.about-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.1);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #ffccd5;
+    object-fit: cover;
+}
+
+/* 5. Project Grid */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -52,23 +103,51 @@ section { padding: 60px 10%; }
 }
 
 .project-card {
-    border: 2px solid var(--soft-pink);
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #ff4d6d;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-pink);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(255, 77, 109, 0.2);
 }
 
-/* Interactive Element: Dark Mode Support */
-body.dark-mode {
-    background-color: #2d2d2d;
-    color: #eee;
-}
-.dark-mode nav, .dark-mode .project-card {
-    background: #3d3d3d;
+/* 6. Buttons & Interactive */
+#theme-toggle {
+    background-color: #ff4d6d;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 7. Dark Mode (The Interactive Feature) */
+body.dark-mode {
+    background-color: #2b0d15;
+    color: #ffe5ec;
+}
+
+body.dark-mode .about-container, 
+body.dark-mode .project-card,
+body.dark-mode nav {
+    background-color: #47121d;
+    color: white;
+}
+
+/* 8. Mobile Responsiveness */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        display: none; /* Simplifies mobile for now */
+    }
 }
