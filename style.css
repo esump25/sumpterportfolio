@@ -1,153 +1,140 @@
-/* 1. Universal Styles */
+/* 1. Global Reset & Bright Vibes */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     margin: 0;
     padding: 0;
-    color: #444444;
-    background-color: #fff0f3; /* Very light pink background */
+    background-color: #fff5f8; /* Softest pink background */
+    color: #333;
 }
 
-/* 2. Navigation */
+/* 2. Super Pink Navigation */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background-color: #ffffff;
-    border-bottom: 3px solid #ffccd5;
+    padding: 1.5rem 8%;
+    background: #ffffff;
+    border-bottom: 4px solid #ff85a1; /* Bold pink border */
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #c9184a; /* Deep rose pink */
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ff0054; /* Hot Pink */
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: 25px;
 }
 
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
+nav a {
     text-decoration: none;
-    color: #ff4d6d; /* Bright pink */
-    font-weight: 600;
+    color: #ff4d6d;
+    font-weight: 700;
+    transition: 0.3s;
 }
 
-/* 3. Hero Header */
+nav a:hover {
+    color: #ff0054;
+    text-shadow: 0 0 10px rgba(255, 0, 84, 0.2);
+}
+
+/* 3. The "Main Stage" (Hero) */
 header {
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(to bottom, #ffccd5, #fff0f3);
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #ffccd5 0%, #fff 100%);
 }
 
 header h1 {
-    font-size: 3rem;
-    color: #800f2f; /* Darkest pink for contrast */
+    font-size: 3.5rem;
+    color: #ff0054;
 }
 
 .highlight {
-    color: #ff4d6d;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    color: #ffffff;
+    background: #ff4d6d;
+    padding: 0 15px;
+    border-radius: 10px;
 }
 
-/* 4. Sections & Containers */
+/* 4. Professional Cards */
 section {
-    padding: 60px 10%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 80px 10%;
 }
 
 h2 {
+    color: #ff0054;
+    font-size: 2.2rem;
     text-align: center;
-    color: #c9184a;
-    border-bottom: 2px solid #ffccd5;
-    display: inline-block;
-    padding-bottom: 10px;
-    width: 100%;
+    margin-bottom: 50px;
 }
 
 .about-container {
     background: white;
-    padding: 30px;
-    border-radius: 20px;
+    border: 3px solid #ffccd5;
+    border-radius: 40px; /* Extra rounded for girly aesthetic */
+    padding: 50px;
     display: flex;
-    gap: 30px;
-    align-items: center;
-    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.1);
+    gap: 40px;
+    box-shadow: 20px 20px 0px #ffccd5; /* Retro pink shadow */
 }
 
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid #ffccd5;
-    object-fit: cover;
-}
-
-/* 5. Project Grid */
+/* 5. Glowing Project Cards */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .project-card {
     background: white;
-    padding: 25px;
-    border-radius: 15px;
-    border-left: 5px solid #ff4d6d;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 30px;
+    border-radius: 25px;
+    border: 2px solid #ffccd5;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(255, 77, 109, 0.2);
+    border-color: #ff0054;
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 0, 84, 0.15);
 }
 
-/* 6. Buttons & Interactive */
+/* 6. The Interactive Button */
 #theme-toggle {
-    background-color: #ff4d6d;
+    background: linear-gradient(to right, #ff4d6d, #ff0054);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
+    padding: 12px 25px;
+    border-radius: 50px;
     font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 0, 84, 0.3);
 }
 
-/* 7. Dark Mode (The Interactive Feature) */
+#theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 84, 0.4);
+}
+
+/* 7. Dark Mode (Professional Night Pink) */
 body.dark-mode {
-    background-color: #2b0d15;
-    color: #ffe5ec;
+    background-color: #1a0005;
+    color: #ffccd5;
 }
 
 body.dark-mode .about-container, 
-body.dark-mode .project-card,
+body.dark-mode .project-card, 
 body.dark-mode nav {
-    background-color: #47121d;
+    background-color: #2d000a;
+    border-color: #ff4d6d;
     color: white;
-}
-
-/* 8. Mobile Responsiveness */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    nav ul {
-        display: none; /* Simplifies mobile for now */
-    }
 }
