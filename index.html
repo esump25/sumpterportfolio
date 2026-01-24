@@ -1,69 +1,159 @@
+<!--
+  Welcome to my website code! 
+  For the AI element, I used Google Gemini to create the pink and professional template.
+  From there I changed the information about me, added relevant skills, inserted my own projects and work experience. 
+  I change a lot about the work expeirence section because I did not like the original formatiing,
+  and my prior knowledge in HTML helped me do that. I had a few questions about sectioning things
+  off within my website and spacing, so I asked Gemini how to do it traditionally, and then I applied that to my code.
+  I also edited some theming elements (light and dark mode were originally "Vibe" and "Mood") that I did not think were professional
+  or represented my work in the way I wanted to. I edited mostly in the html file, but also had to make soem changes in the css
+  to align my new design features. I also changed the colors of a lot of things because the pallete was not orignally cohesive. 
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Portfolio</title>
+    <title>Emmy A. Sumpter | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <div class="logo">Portfolio</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><button id="theme-toggle">✨ Mood</button></li>
-        </ul>
+        <div class="nav-container">
+            <div class="logo">E. SUMPTER</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="theme-toggle">Dark Mode</button></li>
+            </ul>
+        </div>
     </nav>
 
-    <header>
-        <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
-        <p>Aspiring Developer & Creative Thinker</p>
+    <header class="shimmer-bg">
+        <div class="container">
+            <h1>Emmy Sumpter</h1>
+            <p>Information Systems @ Carnegie Mellon University</p>
+        </div>
     </header>
 
     <section id="about">
-        <h2>About Me</h2>
-        <div class="about-container">
-            <img src="https://via.placeholder.com/150" alt="Profile Photo" class="profile-pic">
-            <div class="bio">
-                <p>Insert a brief bio here. Talk about what you're studying and what excites you about tech!</p>
-                <h3>Skills</h3>
-                <ul class="skills-list">
-                    <li>HTML & CSS</li>
-                    <li>Problem Solving</li>
-                    <li>Learning AI Tools</li>
-                </ul>
+        <div class="container">
+            <div class="about-card">
+                <div class="about-flex-container">
+                    <div class="about-text">
+                        <h2>About Me!</h2>
+                        <p>I am an Information Systems student at <strong>Carnegie Mellon University</strong> (GPA: 3.69/4.00). I'm passionate about the intersection between tech, and humanities and what that means for our world today. Besides my professional interests, I also enjoy rock climbing, crafting, reading fiction, and cooking.</p>
+                    </div>
+
+                    <div class="about-image">
+                        <img src="emmy.JPG" width = "280" alt="Emmy Sumpter">
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3>Skills</h3>
+                    <ul class="skills-list">
+                        <li>Python & Java</li>
+                        <li>Pandas & NumPy</li>
+                        <li>Model Evaluation & AI</li>
+                        <li>Website Building</li>
+                        <li>Data Analysis</li>
+                        <li>Research</li>
+                        <li>Project Experience</li>
+                        <li>Leadership</li>
+                        <li>Creativity & Innovation</li>
+                        <li>Problem-Solving</li>
+                        <li>Presentation</li>
+                        <li>Team-Building</li>
+                        <li>Time-Management</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Project One</h3>
-                <p>A placeholder for your first big assignment.</p>
+        <div class="container">
+            <h2 class="section-title">Project Showcase</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <span class="tag">AI & Healthcare</span>
+                    <h3>Coughing & Coding</h3>
+                    <p>Lung Scan Image Classification Model identifying pneumonia using Python.</p>
+                    <a href="https://esump25.github.io/ISPES/" target="_blank" class="shimmer-btn">View Site →</a>
+                </div>
+                
+                <div class="project-card">
+                    <span class="tag">Computer Vision</span>
+                    <h3>RetinAl Model</h3>
+                    <p>Built at CMU to detect retinal disease through medical imaging data.</p>
+                    <a href="https://cmucung.github.io/eye-retina-disease-classification/" target="_blank" class="shimmer-btn">View Site →</a>
+                </div>
+
+                <div class="project-card">
+                    <span class="tag">Matrices</span>
+                    <h3>Markov Chains and The American Dream</h3>
+                    <p>Python program built to analyze Markov Chains and economic quintiles.</p>
+                    <a href="https://drive.google.com/file/d/15xWA0n5JnTV_aKH9YBBD1-SP4PCargl5/view?usp=drive_link" target="_blank" class="shimmer-btn">View Project →</a>
             </div>
-            <div class="project-card">
-                <h3>Project Two</h3>
-                <p>Coming soon as I learn more JavaScript!</p>
-            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="work-list">
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title-group">
+                            <h3>Handshake AI Fellowship</h3>
+                            <p class="role-title">AI Trainer - Information Systems Expert</p>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-location">Remote</span>
+                            <span class="work-date">November 2025 – Present</span>
+                        </div>
+                    </div>
+                    <ul class="work-description">
+                        <li>Developed and analyzed domain-specific prompts to assess the performance of large language models (LLMs)</li>
+                        <li>Contributed to improving AI understanding of media through expert review and feedback</li>
+                        <li>Conducted independent research to support prompt development and evaluation tasks</li>
+                    </ul>
+                </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title-group">
+                            <h3>St. Catherine's Brilliant Summer</h3>
+                            <p class="role-title">Summer Camp Counselor</p>
+                        </div>
+                        <div class="work-meta">
+                            <span class="work-location">Richmond, VA</span>
+                            <span class="work-date">June 2025 – August 2025</span>
+                        </div>
+                    </div>
+                    <ul class="work-description">
+                        <li>Co-led daily enrichment activities for children ages 4-7 to support early childhood development and elementary readiness</li>
+                        <li>Collaborated with colleagues to navigate and resolve scheduling and communicative challenges</li>
+                        <li>Guided campers through problem-solving to teach interpersonal skills and independence</li>
+                    </ul>
+                </div>
+                </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Get In Touch</h2>
-        <p>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></p>
-        <div class="social-links">
-            <a href="#">LinkedIn</a> | <a href="#">GitHub</a>
+        <div class="container center-text">
+            <h2>Let's Connect</h2>
+            <div class="contact-links">
+                <p>📧 <a href="mailto:emsumpter06@gmail.com">emsumpter06@gmail.com</a></p>
+                <p>🔗 <a href="https://www.linkedin.com/in/emmy-sumpter-6606082bb" target="_blank">LinkedIn Profile</a></p>
+                <p>Made with assistance from Google Gemini!</p>
+            </div>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2026 Created by [Your Name]</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -5,8 +5,8 @@ toggleBtn.addEventListener('click', () => {
     
     // Change button text based on mode
     if (document.body.classList.contains('dark-mode')) {
-        toggleBtn.innerText = "☀️ Light Mode";
+        toggleBtn.innerText = "Light Mode";
     } else {
-        toggleBtn.innerText = "✨ Mood";
+        toggleBtn.innerText = "Dark Mode";
     }
 });
