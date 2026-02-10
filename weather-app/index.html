@@ -5,14 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What to Wear</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f4f9; }
-        .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
-        input { width: 80%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
-        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #0056b3; }
-        #result { margin-top: 20px; padding: 15px; border-radius: 4px; display: none; }
-        .success { background: #e7f3ff; color: #0056b3; border: 1px solid #d0e7ff; }
-        .error { background: #ffe7e7; color: #b30000; border: 1px solid #ffd0d0; }
+        :root {
+            --cupid-pink: #E6748E;
+            --melon: #FF99BE;
+            --lychee: #EDECDB;
+            --sky-blue: #96CBFC;
+            --sky-cloud: #4E8BC4;
+        }
+
+        body { 
+            background: linear-gradient(135deg, var(--sky-cloud) 0%, var(--lychee) 100%);
+            font-family: 'optima', 'Didot', 'serif'; /* Elegant editorial fonts */
+            color: #444;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container { 
+            background: white;
+            padding: 3rem;
+            border-radius: 2px; /* Sharp, professional edges */
+            box-shadow: 20px 20px 0px var(--melon); /* Stylized offset shadow */
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        h2 { 
+            color: var(--cupid-pink); 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        input { 
+            border: none;
+            border-bottom: 1px solid var(--sky-blue);
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            outline: none;
+            background: transparent;
+            color: #555;
+        }
+
+        button { 
+            background: var(--sky-blue);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.4s;
+            font-size: 0.9rem;
+        }
+
+        button:hover { 
+            background: var(--cupid-pink);
+            letter-spacing: 4px;
+        }
+
+        #outfit-display {
+            margin-top: 3rem;
+            animation: fadeIn 1s ease;
+        }
+
+        #outfit-img {
+            width: 100%;
+            filter: sepia(10%) contrast(90%); /* Adds that vintage editorial filter */
+            margin-top: 1.5rem;
+            border: 10px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .temp-text {
+            font-size: 2.5rem;
+            color: var(--sky-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
