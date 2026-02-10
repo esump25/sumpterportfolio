@@ -15,7 +15,7 @@
 
         body { 
             background: linear-gradient(135deg, var(--sky-cloud) 0%, var(--lychee) 100%);
-            font-family: 'optima', 'Didot', 'serif'; /* Elegant editorial fonts */
+            font-family: 'optima', 'Didot', 'serif'; 
             color: #444;
             display: flex;
             justify-content: center;
@@ -27,8 +27,8 @@
         .container { 
             background: white;
             padding: 3rem;
-            border-radius: 2px; /* Sharp, professional edges */
-            box-shadow: 20px 20px 0px var(--melon); /* Stylized offset shadow */
+            border-radius: 2px; 
+            box-shadow: 20px 20px 0px var(--melon); 
             width: 100%;
             max-width: 500px;
             text-align: center;
@@ -65,7 +65,7 @@
             cursor: pointer;
             transition: 0.4s;
             font-size: 0.9rem;
-            margin-bottom: 20px
+            margin-bottom: 20px;
         }
 
         button:hover { 
@@ -73,16 +73,18 @@
             letter-spacing: 4px;
         }
 
+        /* This is the results container styling */
         #outfit-display {
+            display: none; /* Hidden until city is searched */
             margin-top: 5rem;
             animation: fadeIn 1s ease;
-            border-top: 1px solid var(--lychee); /* Optional: adds a subtle professional divider line */
+            border-top: 1px solid var(--lychee);
             padding-top: 2rem;
         }
 
         #outfit-img {
             width: 100%;
-            filter: sepia(10%) contrast(90%); /* Adds that vintage editorial filter */
+            filter: sepia(10%) contrast(90%); 
             margin-top: 1.5rem;
             border: 10px solid white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -105,25 +107,27 @@
     <input type="text" id="cityInput" placeholder="e.g. Pittsburgh">
     <button onclick="getOutfit()">Get Suggestion</button>
 
-    <div id="result">
-        <div id="weatherInfo"></div>
+    <div id="outfit-display">
+        <div id="weatherInfo" class="temp-text"></div>
         <div id="suggestion" style="font-weight: bold; margin-top: 10px;"></div>
+        <img id="outfit-img" src="" alt="Outfit Suggestion">
     </div>
     
     <br>
-    <a href="../index.html" style="font-size: 0.8rem; color: #666;">← Back to Portfolio</a>
+    <br>
+    <a href="../index.html" style="font-size: 0.8rem; color: #666; text-decoration: none;">← Back to Portfolio</a>
 </div>
 
 <script>
     async function getOutfit() {
         const city = document.getElementById('cityInput').value;
-        const resultDiv = document.getElementById('result');
+        const display = document.getElementById('outfit-display');
         const weatherInfo = document.getElementById('weatherInfo');
         const suggestion = document.getElementById('suggestion');
+        const outfitImg = document.getElementById('outfit-img');
 
         if (!city) return alert("Enter a city!");
 
-        // Update this URL to your actual Render URL later!
         const BACKEND_URL = 'https://weather-style-backend.onrender.com/suggest';
 
         try {
@@ -135,23 +139,26 @@
 
             const data = await response.json();
 
-            resultDiv.style.display = 'block';
             if (response.ok) {
-                resultDiv.className = 'success';
-                weatherInfo.innerText = `Temp: ${data.temp}°F (${data.description})`;
+                // Matching your editorial design
+                weatherInfo.innerText = `${data.temp}°F`;
                 suggestion.innerText = data.suggestion;
-                const outfitImg = document.getElementById('outfit-img'); 
+                
+                // Set the image source using the /images/ folder
                 outfitImg.src = "./images/" + data.image;
-                resultDiv.style.display = 'block';
+                
+                // Show the container
+                display.style.display = 'block';
             } else {
-                resultDiv.className = 'error';
-                suggestion.innerText = data.error || "Something went wrong.";
+                display.style.display = 'block';
+                suggestion.innerText = data.error || "City not found.";
                 weatherInfo.innerText = "";
+                outfitImg.src = ""; 
             }
         } catch (err) {
-            resultDiv.style.display = 'block';
-            resultDiv.className = 'error';
+            display.style.display = 'block';
             suggestion.innerText = "Error: Could not connect to backend.";
+            console.error(err);
         }
     }
 </script>
