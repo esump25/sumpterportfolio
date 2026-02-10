@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to Wear</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f4f9; }
+        .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+        input { width: 80%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #result { margin-top: 20px; padding: 15px; border-radius: 4px; display: none; }
+        .success { background: #e7f3ff; color: #0056b3; border: 1px solid #d0e7ff; }
+        .error { background: #ffe7e7; color: #b30000; border: 1px solid #ffd0d0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Style Suggester</h2>
+    <p>Enter a city to see what you should wear.</p>
+    <input type="text" id="cityInput" placeholder="e.g. Pittsburgh">
+    <button onclick="getOutfit()">Get Suggestion</button>
+
+    <div id="result">
+        <div id="weatherInfo"></div>
+        <div id="suggestion" style="font-weight: bold; margin-top: 10px;"></div>
+    </div>
+    
+    <br>
+    <a href="../index.html" style="font-size: 0.8rem; color: #666;">← Back to Portfolio</a>
+</div>
+
+<script>
+    async function getOutfit() {
+        const city = document.getElementById('cityInput').value;
+        const resultDiv = document.getElementById('result');
+        const weatherInfo = document.getElementById('weatherInfo');
+        const suggestion = document.getElementById('suggestion');
+
+        if (!city) return alert("Enter a city!");
+
+        // Update this URL to your actual Render URL later!
+        const BACKEND_URL = 'https://YOUR-BACKEND-NAME.onrender.com/suggest';
+
+        try {
+            const response = await fetch(BACKEND_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ city: city })
+            });
+
+            const data = await response.json();
+
+            resultDiv.style.display = 'block';
+            if (response.ok) {
+                resultDiv.className = 'success';
+                weatherInfo.innerText = `Temp: ${data.temp}°F (${data.description})`;
+                suggestion.innerText = data.suggestion;
+            } else {
+                resultDiv.className = 'error';
+                suggestion.innerText = data.error || "Something went wrong.";
+                weatherInfo.innerText = "";
+            }
+        } catch (err) {
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'error';
+            suggestion.innerText = "Error: Could not connect to backend.";
+        }
+    }
+</script>
+
+</body>
+</html>
